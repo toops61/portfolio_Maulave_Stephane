@@ -6,12 +6,3 @@
     border-right: 1px solid rgba(0, 0, 0, 1);
   }
 }
-
-@keyframes line-appears {
-  from {
-    transform: translateX(120%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}

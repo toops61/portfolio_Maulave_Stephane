@@ -1,21 +1,32 @@
 
 .App {
+    position: relative;
     margin: 0;
-    padding: 1em;
+    padding: 4em;
     min-height: 100%;
-    //width: 100vw;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     font-size: 1.5vw;
-    h1,h2 {
+    h1,h2,h3 {
         font-weight: normal;
+    }
+    .github-link {
+        position: absolute;
+        top: 2em;
+        right: 2em;
+        a {
+            color: black;
+        }
+        a::before {
+            @include iconBrands('\f09b',4em);
+        }
     }
     h1 {
         min-height: 1em;
         width: fit-content;
         font-size: 4em;
-        margin: 1em;
+        margin: .5em;
         animation: flashing-cursor 0.7s infinite linear alternate;
         padding-right: .1em;
     }
@@ -26,7 +37,16 @@
         align-items: flex-end;
         h2 {
             font-size: 3em;
-            margin-right: 1em;
+            opacity: 0;
+            transition: .8s;
+        }
+        &.appears {
+            h2 {
+                opacity: 1;
+            }
+            .under-line {
+                transform: translateX(0);
+            }
         }
     }
     .under-line {
@@ -34,6 +54,62 @@
         width: 60vw;
         background-color: black;
         margin: 1.5em 1em;
-        animation: line-appears forwards 1s ;
+        transform: translateX(120%);
+        transition: 1s;
+    }
+    .about {
+        font-size: 1.5em;
+        margin: 1em 0;
+        img {
+            @include imageFit;
+        }
+        transform: skew(18deg) translateX(100vw);
+        transition: 1s;
+        &.appears {
+            transform: skew(0) translateX(0);
+        }
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    .about-container {
+        display: flex;
+        align-items: center;
+        margin: 1em 0;
+        .logo {
+            margin: 0 .5em;
+        }
+    }
+    .oc-logo {
+        width: 2em;
+        height: 2em;
+        margin-right: .5em;
+    }
+    .seipra-logo {
+        width: 5em;
+        height: 2em;
+        margin-right: .5em;
+    }
+    .logo {
+        &.html::before {
+            @include iconBrands('\f13b',2em);
+            color: rgb(255, 83, 38);
+        }
+        &.css::before {
+            @include iconBrands('\f38b',2em);
+            color: rgb(38, 146, 247);
+        }
+        &.js::before {
+            @include iconBrands('\f3b8',2em);
+            color: rgb(246, 219, 35);
+        }
+        &.sql {
+            width: 3em;
+            height: 2em;
+        }
+        &.typescript {
+            width: 1.8em;
+            height: 1.8em;
+        }
     }
   }
