@@ -1,0 +1,39 @@
+
+.App {
+    margin: 0;
+    padding: 1em;
+    min-height: 100%;
+    //width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5vw;
+    h1,h2 {
+        font-weight: normal;
+    }
+    h1 {
+        min-height: 1em;
+        width: fit-content;
+        font-size: 4em;
+        margin: 1em;
+        animation: flashing-cursor 0.7s infinite linear alternate;
+        padding-right: .1em;
+    }
+    .name-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        h2 {
+            font-size: 3em;
+            margin-right: 1em;
+        }
+    }
+    .under-line {
+        height: .15em;
+        width: 60vw;
+        background-color: black;
+        margin: 1.5em 1em;
+        animation: line-appears forwards 1s ;
+    }
+  }

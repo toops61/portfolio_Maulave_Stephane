@@ -1,7 +1,5 @@
 @import "./utils/variables";
-@import "./utils/functions";
 @import "./utils/mixins";
-@import "./utils/extensions";
 @import "./utils/keyframes";
 
 @import "./base/base";
@@ -17,7 +15,3 @@
 @import "./layout/form";
 
 @import "./pages/home";
-@import "./pages/form-page";
-@import "./pages/discography";
-@import "./pages/wantlist";
-@import "./pages/connect-page";
