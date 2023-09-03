@@ -68,17 +68,5 @@
     @include mobile-version {
         font-size: 3vw;
     }
-    .chevron {
-        margin-left: .5em;
-        .inside {
-            transition: .4s;
-            &::before {
-                cursor: pointer;
-                @include icon('\f054',1.5em)
-            }
-        }
-        &.less .inside {
-            transform: rotate(90deg);
-        }
-    }
+    
   }

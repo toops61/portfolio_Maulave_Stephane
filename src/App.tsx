@@ -10,9 +10,15 @@ function App() {
 
   const titleArray = "Portfolio".split("");
 
+  const appRef = useRef<HTMLDivElement>(null);
+
   const nameRef = useRef<HTMLHeadingElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
-  const appRef = useRef<HTMLDivElement>(null);
+
+  /* const project1Ref = useRef<HTMLDivElement>(null);
+  const project2Ref = useRef<HTMLDivElement>(null); */
+
+  const projectRefs = useRef<HTMLDivElement[]>([]);
 
   const observer = new IntersectionObserver(
     entries => {
@@ -59,8 +65,13 @@ function App() {
     }
   },[])
 
+  useEffect(() => {
+    projectRefs.current && console.log(projectRefs);
+  }, [projectRefs])
+  
+
   return (
-    <main className="App" ref={appRef} >
+    <main className="App" ref={appRef}>
       <div className="github-link"><a href="https://github.com/toops61" target="_blank" rel="noreferrer"></a></div>
       <div className="title-container">
         <h1>{titleText}</h1>
@@ -71,7 +82,7 @@ function App() {
       </section>
       {titleAppeared ? <>
         <About ref={aboutRef} appRef={appRef} />
-        <Projects />
+        <Projects ref={projectRefs?.current} appRef={appRef} />
       </> : <></>}
       
     </main>

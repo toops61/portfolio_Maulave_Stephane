@@ -8,6 +8,33 @@ button {
     cursor: pointer;
 }
 
+.chevron {
+    margin-left: .5em;
+    .inside {
+        transition: .4s;
+        &::before {
+            cursor: pointer;
+            @include icon('\f054',1.5em)
+        }
+    }
+    &.less .inside {
+        transform: rotate(90deg);
+    }
+}
+.chevron-left {
+    margin-right: .5em;
+    .inside {
+        transition: .4s;
+        &::before {
+            cursor: pointer;
+            @include icon('\f053',1.5em)
+        }
+    }
+    &.less .inside {
+        transform: rotate(-90deg);
+    }
+}
+
 .close-btn {
     position: absolute;
     top: .5em;
