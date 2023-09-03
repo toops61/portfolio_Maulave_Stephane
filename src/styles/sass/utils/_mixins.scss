@@ -4,21 +4,11 @@
     object-fit: contain;
 }
 
-@mixin position ($top: 0px, $right: 0px) {
-    top: $top;
-    right: $right;
-}
-
-@mixin positionTopLeft ($top: 0, $left: 0) {
-    top: $top;
-    left: $left;
-}
-
 @mixin textShadow {
     text-shadow: 2px 2px 4px black;
 }
 
-@mixin btn-shadow ($offsetX: 2px, $offsetY: 2px, $blur: 14px, $color: black)  {
+@mixin btnShadow ($offsetX: 2px, $offsetY: 2px, $blur: 8px, $color: black)  {
     box-shadow: $offsetX $offsetY $blur $color;
 }
 
@@ -77,16 +67,4 @@
     font-variant: normal;
     text-rendering: auto;
     line-height: 1;
-}
-
-@mixin text-shadow {
-    text-shadow: 2px 2px 1px black;
-}
-
-@mixin adapt-size ($font-size: 4vw) {
-    @media screen and (max-width: 600px) {
-        * {
-            font-size: $font-size;
-        }
-    }
 }

@@ -1,0 +1,67 @@
+.about {
+    font-size: 1.5em;
+    margin: 1em 0;
+    overflow: hidden;
+    &.appears .about__inside {
+        transform: skew(0) translateX(0);
+    }
+    &__inside {
+        transform: skew(18deg) translateX(100vw);
+        transition: 1s;
+        background-color: #fff;
+    }
+    &__title {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 60vw;
+        height: 4em;
+        border-bottom: solid .15em;
+        background-color: #fff;
+        z-index: 5;
+        margin-bottom: 1em;
+    }
+    &__more {
+        transform: translateY(-100%);
+        display: flex;
+        flex-direction: column;
+        max-height: 0;
+        transition: transform .8s, max-height .4s;
+        &.visible {
+            transform: translateY(0);
+            max-height: 40em;
+        }
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 1.5em 0;
+        .logo {
+            margin: 0 .5em;
+        }
+    }
+    .oc-logo {
+        width: 2em;
+        height: 2em;
+        margin-right: .5em;
+    }
+    .seipra-logo {
+        width: 5em;
+        height: 2em;
+        margin-right: .5em;
+    }
+    .buttons-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 1em;
+        button {
+            @include btnShadow(3px,3px,3px);
+            &:active {
+                box-shadow: none;
+            }
+        }
+    }
+}
