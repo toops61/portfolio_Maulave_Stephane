@@ -9,5 +9,57 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        overflow: hidden;
+        &.appears .under-line {
+            transform: translateX(0);
+        }
+    }
+    h4 {
+        @include textShadow;
+    }
+    .project {
+        margin-bottom: 1em;
+        overflow: hidden;
+        &.appears {
+            .inside-project {
+                transform: skew(0) translateX(0);
+            }
+        }
+    }
+    .inside-project {
+        transform: skew(18deg) translateX(-120%);
+        transition: .8s;
+        border: solid black;
+        padding: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: .5em;
+        &.player {
+            background-color: #ab2c2c;
+            color: white;
+            a {
+                color: white;
+                margin: .5em 0;
+            }
+            .screenshot-container {
+                height: 20em;
+            }
+        }
+    }
+    .infos-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        p {
+            margin: .5em 0;
+        }
+        .difficulties {
+            margin-top: 2em;
+            align-self: flex-end;
+        }
+    }
+    .player-link::before {
+        @include icon('\f0c1',1.2em)
     }
 }

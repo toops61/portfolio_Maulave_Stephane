@@ -15,9 +15,6 @@ function App() {
   const nameRef = useRef<HTMLHeadingElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
 
-  /* const project1Ref = useRef<HTMLDivElement>(null);
-  const project2Ref = useRef<HTMLDivElement>(null); */
-
   const projectRefs = useRef<HTMLDivElement[]>([]);
 
   const observer = new IntersectionObserver(
@@ -30,12 +27,26 @@ function App() {
               observer.unobserve(entry.target);
             } 
             break;
+          case projectRefs.current[2]:            
+            if (entry.intersectionRatio === 1) {
+              projectRefs.current[2].classList.add('appears');
+              observer.unobserve(entry.target);
+            }
+            break;
+          case projectRefs.current[0]:
+              entry.intersectionRatio > .2 ? projectRefs.current[0].classList.add('appears') : 
+              projectRefs.current[0].classList.remove('appears');
+              break;
+          case projectRefs.current[1]:
+              entry.intersectionRatio > .2 ? projectRefs.current[1].classList.add('appears') : 
+              projectRefs.current[1].classList.remove('appears');
+              break;
           default:
             break;
         }
       })
     },{
-      threshold:1
+      threshold:[0,0.25,0.5,0.75,1]
     }
   );
 
@@ -55,6 +66,9 @@ function App() {
   useEffect(() => {
     aboutRef.current && observer.observe(aboutRef.current);
     nameRef.current && observer.observe(nameRef.current);
+    projectRefs.current[0] && observer.observe(projectRefs.current[0]);
+    projectRefs.current[1] && observer.observe(projectRefs.current[1]);
+    projectRefs.current[2] && observer.observe(projectRefs.current[2]);
   }, [titleAppeared])
   
   //cleanup function
@@ -82,7 +96,7 @@ function App() {
       </section>
       {titleAppeared ? <>
         <About ref={aboutRef} appRef={appRef} />
-        <Projects ref={projectRefs?.current} appRef={appRef} />
+        <Projects ref={projectRefs} />
       </> : <></>}
       
     </main>
